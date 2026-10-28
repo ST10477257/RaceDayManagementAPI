@@ -2,18 +2,19 @@ name: RaceDay API CI
 
 on:
 push:
-branches: [ "master" ]
+branches:
+- master
 pull_request:
-branches: [ "master" ]
+branches:
+- master
 
 jobs:
 build-and-test:
 runs-on: windows-latest
-
-
 steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
+- name: Checkout repository
+uses: actions/checkout@v4
+
 
   - name: Setup .NET
     uses: actions/setup-dotnet@v4
@@ -21,14 +22,11 @@ steps:
       dotnet-version: '10.0.x'
 
   - name: Restore dependencies
-    run: dotnet restore StudentManagementAPI/StudentManagementAPI.csproj
+    run: dotnet restore StudentManagementAPI.slnx
 
-  - name: Build API
-    run: dotnet build StudentManagementAPI/StudentManagementAPI.csproj --configuration Release --no-restore
+  - name: Build solution
+    run: dotnet build StudentManagementAPI.slnx --configuration Release --no-restore
 
-  - name: Restore test dependencies
-    run: dotnet restore StudentManagementAPI.Tests/StudentManagementAPI.Tests.csproj
-
-  - name: Run unit tests
-    run: dotnet test StudentManagementAPI.Tests/StudentManagementAPI.Tests.csproj --configuration Release
+  - name: Run tests
+    run: dotnet test StudentManagementAPI.slnx --configuration Release --no-build
 
