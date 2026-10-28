@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="StudentManagementAPI.Tests/StudentManagementAPI.Tests.csproj" Id="2046bfb2-2e46-48ea-8d96-79d5632ed2c5" />
+  <Project Path="StudentManagementAPI/StudentManagementAPI.csproj" />
+</Solution>
