@@ -10,7 +10,7 @@ jobs:
 build-and-test:
 runs-on: windows-latest
 
-```
+
 steps:
   - name: Checkout repository
     uses: actions/checkout@v4
@@ -31,4 +31,4 @@ steps:
 
   - name: Run unit tests
     run: dotnet test StudentManagementAPI.Tests/StudentManagementAPI.Tests.csproj --configuration Release
-```
+
