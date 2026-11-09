@@ -1,0 +1,59 @@
+﻿@model RaceDayManagementMVC.Models.RouteViewModel
+
+@{
+    ViewData["Title"] = "Edit Route";
+}
+
+<div class="management-container">
+    <div class="management-header">
+        <span class="eyebrow">RACEDAY MANAGEMENT</span>
+        <h1>Edit Route</h1>
+        <p>Update the details of your sporting route.</p>
+    </div>
+
+    <form asp-action="Edit" asp-route-id="@Model.RouteId" method="post">
+
+        <input type="hidden" asp-for="RouteId" />
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="EventId">Event ID</label>
+            <input asp-for="EventId" type="number" class="form-control" />
+            <span asp-validation-for="EventId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="RouteName">Route Name</label>
+            <input asp-for="RouteName" class="form-control" />
+            <span asp-validation-for="RouteName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DistanceKm">Distance (KM)</label>
+            <input asp-for="DistanceKm" type="number" step="0.1" class="form-control" />
+            <span asp-validation-for="DistanceKm" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="RouteDescription">Route Description</label>
+            <textarea asp-for="RouteDescription" class="form-control"></textarea>
+            <span asp-validation-for="RouteDescription" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="RouteMapUrl">Route Map URL</label>
+            <input asp-for="RouteMapUrl" class="form-control" />
+            <span asp-validation-for="RouteMapUrl" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn-primary-custom">
+            Save Changes
+        </button>
+
+        <a asp-action="Index" class="btn-secondary-custom">
+            Cancel
+        </a>
+
+    </form>
+</div>

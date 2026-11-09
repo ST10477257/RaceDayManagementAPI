@@ -1,0 +1,60 @@
+﻿@model RaceDayManagementMVC.Models.EventViewModel
+
+@{
+    ViewData["Title"] = "Edit Event";
+}
+
+<div class="management-container">
+    <div class="management-header">
+        <span class="eyebrow">RACEDAY MANAGEMENT</span>
+        <h1>Edit Event</h1>
+        <p>Update your sporting event details.</p>
+    </div>
+
+    <form asp-action="Edit" asp-route-id="@Model.EventId" method="post">
+
+        <input type="hidden" asp-for="EventId" />
+        <input type="hidden" asp-for="OrganiserId" />
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="EventName"></label>
+            <input asp-for="EventName" class="form-control" />
+            <span asp-validation-for="EventName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="EventDate"></label>
+            <input asp-for="EventDate" type="date" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="StartTime"></label>
+            <input asp-for="StartTime" type="time" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Location"></label>
+            <input asp-for="Location" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Status"></label>
+            <input asp-for="Status" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn-primary-custom">
+            Save Changes
+        </button>
+
+        <a asp-action="Index" class="btn-secondary-custom">
+            Cancel
+        </a>
+    </form>
+</div>

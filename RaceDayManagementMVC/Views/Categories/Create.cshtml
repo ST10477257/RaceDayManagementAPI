@@ -1,0 +1,54 @@
+﻿@model RaceDayManagementMVC.Models.CategoryViewModel
+
+@{
+    ViewData["Title"] = "Create Category";
+}
+
+<div class="management-container">
+    <div class="management-header">
+        <span class="eyebrow">RACEDAY MANAGEMENT</span>
+        <h1>Create a Race Category</h1>
+        <p>Add a new category to your race platform.</p>
+    </div>
+
+    <div class="management-card">
+        <form asp-action="Create" method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-4">
+                <label asp-for="CategoryName" class="form-label">
+                    Category Name
+                </label>
+                <input asp-for="CategoryName"
+                       class="form-control"
+                       placeholder="e.g. 10 KM Run" />
+                <span asp-validation-for="CategoryName"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="Description" class="form-label">
+                    Description
+                </label>
+                <textarea asp-for="Description"
+                          class="form-control"
+                          rows="4"
+                          placeholder="Describe this race category..."></textarea>
+                <span asp-validation-for="Description"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary-custom">
+                    Create Category →
+                </button>
+
+                <a asp-action="Index" class="btn-secondary-custom">
+                    Cancel
+                </a>
+            </div>
+
+        </form>
+    </div>
+</div>

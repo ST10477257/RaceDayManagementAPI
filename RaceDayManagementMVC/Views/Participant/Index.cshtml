@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Participant Dashboard";
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1>Welcome, @ViewBag.FirstName!</h1>
+        <p class="lead">Welcome to your RaceDay participant dashboard.</p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h4>Race Events</h4>
+                    <p>Explore upcoming races and community events.</p>
+                    <a asp-controller="Events"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        View Events
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h4>Race Categories</h4>
+                    <p>Explore running, cycling and other race categories.</p>
+                    <a asp-controller="Categories"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        View Categories
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h4>Race Routes</h4>
+                    <p>Discover the routes available for race events.</p>
+                    <a asp-controller="Routes"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        View Routes
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-center mt-5">
+        <a asp-controller="Auth"
+           asp-action="Logout"
+           class="btn btn-outline-danger">
+            Logout
+        </a>
+    </div>
+</div>

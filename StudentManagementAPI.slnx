@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="RaceDayManagementMVC/RaceDayManagementMVC.csproj" Id="e9614242-fa89-4df4-9aae-811063796b79" />
   <Project Path="StudentManagementAPI.Tests/StudentManagementAPI.Tests.csproj" Id="2046bfb2-2e46-48ea-8d96-79d5632ed2c5" />
   <Project Path="StudentManagementAPI/StudentManagementAPI.csproj" />
 </Solution>

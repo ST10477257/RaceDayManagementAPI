@@ -1,0 +1,56 @@
+﻿@model List<RaceDayManagementMVC.Models.RouteViewModel>
+
+@{
+    ViewData["Title"] = "Race Routes";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Race Routes</h1>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">
+            No race routes are currently available.
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var route in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="card-title">@route.RouteName</h4>
+
+                            <p>
+                                <strong>Distance:</strong>
+                                @route.DistanceKm km
+                            </p>
+
+                            <p>
+                                <strong>Description:</strong>
+                                @route.RouteDescription
+                            </p>
+
+                            <p>
+                                <strong>Event ID:</strong>
+                                @route.EventId
+                            </p>
+
+                            @if (!string.IsNullOrEmpty(route.RouteMapUrl))
+                            {
+                                <a href="@route.RouteMapUrl"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="btn btn-primary">
+                                    View Route Map
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

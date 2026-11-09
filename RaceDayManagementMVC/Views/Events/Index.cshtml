@@ -1,0 +1,60 @@
+﻿@model IEnumerable<RaceDayManagementMVC.Models.EventViewModel>
+
+@{
+    ViewData["Title"] = "Race Events";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Race Events</h1>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Error
+        </div>
+    }
+    else if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No race events are currently available.
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var raceEvent in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                @raceEvent.EventName
+                            </h4>
+
+                            <p>@raceEvent.Description</p>
+
+                            <p>
+                                <strong>Date:</strong>
+                                @raceEvent.EventDate.ToString("dd MMM yyyy")
+                            </p>
+
+                            <p>
+                                <strong>Start Time:</strong>
+                                @raceEvent.StartTime
+                            </p>
+
+                            <p>
+                                <strong>Location:</strong>
+                                @raceEvent.Location
+                            </p>
+
+                            <span class="badge bg-primary">
+                                @raceEvent.Status
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
